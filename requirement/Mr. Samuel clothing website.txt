@@ -1,0 +1,19 @@
+Mr. Samuel wish the website like :
+1. theme for background is pastel or bright colors
+2. layout and font make it simple but look aesthetic
+3. having an engaging introduction on the front page
+4. user can checkout without account
+5. product not display full when user click, just small detail
+6. operation after checkout continued outside application
+
+follow-up interview with some question to get deep meaning about the requirements
+1. what is the purpose of pastel or bright color?
+-> I think a website with pastel colors can appear friendly to users, and this contrast between the products and the website can be visually appealing
+2. Why do you want the website to allow users to checkout orders without requiring an account?
+->  want to simplify the process for users who just want to buy clothes, making it faster for them
+3. What do you mean by 'checkout continued outside the application,' and how does it work?
+-> I mean that after users validate their orders, the communication between them and the admin can continue through platforms like WhatsApp or email, allowing them to chat for further assistance.
+
+from the interview Mr. Samuel want the website really like :
+1. The website is designed to be simple, allowing users to easily select and purchase items. Afterward, order tracking continues through app communication methods such as email or WhatsApp
+2. Using pastel colors and displaying small details upon user clicks, Mr. Samuel wants the website to have a friendly appearance with subtle interactions or animations
