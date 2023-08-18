@@ -15,6 +15,6 @@ follow-up interview with some question to get deep meaning about the requirement
 3. What do you mean by 'checkout continued outside the application,' and how does it work?
 -> I mean that after users validate their orders, the communication between them and the admin can continue through platforms like WhatsApp or email, allowing them to chat for further assistance.
 
-from the interview Mr. Samuel want the website really like :
+from the interview with Mr. Samuel, he want the website really like :
 1. The website is designed to be simple, allowing users to easily select and purchase items. Afterward, order tracking continues through app communication methods such as email or WhatsApp
 2. Using pastel colors and displaying small details upon user clicks, Mr. Samuel wants the website to have a friendly appearance with subtle interactions or animations
