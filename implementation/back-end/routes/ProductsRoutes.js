@@ -1,11 +1,10 @@
 // Package
 const express = require('express')
-// Module controller
+// Module
+const { getAllProduct } = require('../controller/ProductsController')
 // Init
 const router = express.Router()
 // GET all prodcuts
-router.get('/', (req, res) => {
-    console.log('this is all products')
-})
+router.get('/', getAllProduct)
 
 module.exports = router
