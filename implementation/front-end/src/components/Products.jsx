@@ -1,8 +1,6 @@
 import DisplayProducts from "./DisplayProducts";
-
 // ==>
 const Products = ({ products }) => {
-    console.log('==> ', products)
 
     return (
         <div className="products mt-[3em] w-4/5 mx-auto h-96">
