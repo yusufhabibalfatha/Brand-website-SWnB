@@ -31,10 +31,10 @@ const Navbar = () => {
     }
 
     return (
-        <nav className='bg-[#F5F5F5] flex justify-between items-center border-b-2 h-[12%] px-5 md:px-10 border-black fixed w-full'>
+        <nav className='bg-[#F5F5F5] flex justify-between items-center border-b-2 h-[12%] px-5 md:px-10 border-black fixed top-0 w-full'>
             <div className="nav-title w-full md:flex md:flex-col md:justify-evenly md:items-center md:h-full">
-                <h1 className='font-bold'>Monochrome <br className='md:hidden'></br>Maven</h1>
-                <div className="nav-link max-[768px]:hidden w-1/2 flex justify-between">
+                <h1 className='text-sm'>Samuel <br className='md:hidden'></br>Black & White</h1>
+                <div className="nav-link max-[767px]:hidden w-1/2 flex justify-between">
                     <Link>Cloth</Link>
                     <Link>Black</Link>
                     <Link>White</Link>
