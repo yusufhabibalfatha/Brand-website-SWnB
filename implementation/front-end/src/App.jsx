@@ -7,7 +7,7 @@ import Home from "./pages/Home"
 function App() {
 
   return (
-    <div className="app bg-[#F5F5F5] relative h-screen font-primary pt-[6em]">
+    <div className="app bg-[#F5F5F5] relative h-full font-primary pt-[6em]">
       <Router>
         <Navbar />
         <Routes>
