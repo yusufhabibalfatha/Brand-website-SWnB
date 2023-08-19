@@ -1,3 +1,5 @@
+// Package
+import { Link } from "react-router-dom"
 // Module
 import { useEffect } from "react";
 import CartItem from "../components/CartItem";
@@ -19,7 +21,7 @@ const Cart = () => {
             </div>
             <div className="cart-total w-1/2 flex justify-evenly h-fit">
                 <p>$ {total}</p>
-                <button>Next</button>
+                <Link to="/checkout">Next</Link>
             </div>
         </div>
     )
