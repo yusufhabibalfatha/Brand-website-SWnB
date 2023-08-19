@@ -2,6 +2,7 @@
 import bgBlack from '../assets/bg-black.jpg'
 // ==>
 const Header = () => {
+
     return (
         <header className="h-auto grid grid-cols-1 md:grid-cols-2 place-items-center gap-4 md:w-3/4 md:mx-auto md:justify-items-start">
             <div className="header-text text-center mx-10 w-10/12 md:mx-0 md:h-full md:text-3xl md:text-left">
