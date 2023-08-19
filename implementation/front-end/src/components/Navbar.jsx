@@ -33,7 +33,7 @@ const Navbar = () => {
     return (
         <nav className='bg-[#F5F5F5] flex justify-between items-center border-b-2 h-[12%] px-5 md:px-10 border-black fixed top-0 w-full'>
             <div className="nav-title w-full md:flex md:flex-col md:justify-evenly md:items-center md:h-full">
-                <h1 className='text-sm'>Samuel <br className='md:hidden'></br>Black & White</h1>
+                <Link to="/"><h1 className='text-sm'>Samuel <br className='md:hidden'></br>Black & White</h1></Link>
                 <div className="nav-link max-[767px]:hidden w-1/2 flex justify-between">
                     <Link>Cloth</Link>
                     <Link>Black</Link>
@@ -43,7 +43,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="nav-icon flex justify-around md:justify-end md:w-fit items-end w-1/3">
-                <img src={shoppingCartIcon} alt="shopping-cart-icon" className='w-7 h-7' />
+                <Link to="/cart"><img src={shoppingCartIcon} alt="shopping-cart-icon" className='w-7 h-7' /></Link>
                 <img 
                     onClick={() => setShowMenu(!showMenu)}
                     src={menuIcon} 

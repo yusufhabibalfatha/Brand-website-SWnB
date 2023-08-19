@@ -1,10 +1,12 @@
 // Moduel
 import testImg from '../assets/white/short-white.jpg'
+import { useCartContext } from '../hooks/useCartContext'
 // ==>
 const DisplayProducts = ({ product }) => {
-    const addProduct = (e, product) => {
+    const { cart, addProduct } = useCartContext()
+    const addToCart = (e, product) => {
         e.preventDefault()
-        console.log('=>> ', product)
+        addProduct(product)
     }
 
     return (
@@ -19,7 +21,7 @@ const DisplayProducts = ({ product }) => {
             <div className="product-btn w-4/5 flex justify-between">
                 <button>Detail</button>
                 <button
-                    onClick={(e) => addProduct(e, product)}
+                    onClick={(e) => addToCart(e, product)}
                     >Add to cart</button>
             </div>
         </div>
