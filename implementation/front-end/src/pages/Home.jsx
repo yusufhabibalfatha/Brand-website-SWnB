@@ -1,13 +1,15 @@
 // Module
-import Black from "../components/Black";
 import Header from "../components/Header"
+import TextMarquee from "../components/TextMarquee";
+import Products from "../components/Products";
 // ==>
 const Home = () => {
 
     return (
         <div className="home">
             <Header />
-            <Black />
+            <TextMarquee />
+            <Products />
         </div>
     );
 }
