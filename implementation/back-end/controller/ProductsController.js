@@ -1,10 +1,10 @@
 // Module
-const db = require('../database/database')
+const connectDB = require('../database/database')
 // get all product
-const getAllProduct = (req, res) => {
-    db.query('SELECT * FROM products', (err, result, field) => {
-        res.status(200).json({ result })
-    })
+const getAllProduct = async (req, res) => {
+    const mysql = await connectDB()
+    const [rows, fields] = await mysql.query('SELECT * FROM products')
+    res.status(200).json({ result : rows })
 }
 
 module.exports = { getAllProduct }
