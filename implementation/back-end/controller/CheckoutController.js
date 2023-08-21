@@ -12,11 +12,13 @@ const postCheckout = async (req, res) => {
     customer.id = await postCustomer(customer)
     const transaction = {
         message: req.body.message,
+        amount: req.body.total,
         customer_id: customer.id
     }
     transaction.id = await postTransaction(transaction)
     const transactionItems = req.body.items
     await postTransactionItems(transaction.id, transactionItems)
+    res.status(200).json({msg: 'done'})
 }
 // GET checkout
 const getTransaction = async (req, res) => {

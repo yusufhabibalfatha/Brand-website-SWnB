@@ -15,7 +15,7 @@ const postCustomer = async (customer) => {
 const postTransaction = async (transaction) => {
     try{
         const mysql = await connectDB()
-        const query = `INSERT INTO transaction (customer_id, message) VALUES ('${transaction.customer_id}', '${transaction.message}')`
+        const query = `INSERT INTO transaction (customer_id, message, amount) VALUES ('${transaction.customer_id}', '${transaction.message}', '${transaction.amount}')`
         const [rows, fields] = await mysql.execute(query)
         const id = rows.insertId
         return id
