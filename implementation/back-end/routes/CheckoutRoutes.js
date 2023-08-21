@@ -2,10 +2,11 @@
 const express = require('express')
 // Module
 const { postCheckout, getTransaction, getProductTransaction } = require('../controller/CheckoutController')
+const upload = require('../middleware/uploadImage')
 // Init
 const router = express.Router()
 // POST Checkout
-router.post('/', postCheckout)
+router.post('/', upload.single('image'),postCheckout)
 // GET checkout
 router.get('/transaction', getTransaction)
 // GET checkout item or product

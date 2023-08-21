@@ -13,39 +13,23 @@ const Checkout = () => {
 
     const handleCheckout = async (e) => {
         e.preventDefault()
-        let payload = new FormData(e.target)
+        // let payload = new FormData(e.target)
         
-        const items = cart.map(product => {
-                const product_id = product.id
-                const quantity = product.amount
-                return { product_id, quantity }
-        })
-        payload.append('items', JSON.stringify(items))
-        console.log(typeof(payload))
-        console.log([...payload])
-
-        fetch('http://localhost:4000/coba', {
-            method: 'POST',
-            body: payload
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log('EEROR => ', err))
-        // const checkout = {
-        //     name, email, phone_number, address, message, total,
-        //     items: cart.map(product => {
+        // const items = cart.map(product => {
         //         const product_id = product.id
         //         const quantity = product.amount
         //         return { product_id, quantity }
-        //     })
-        // }
-        // const res = await fetch('http://localhost:4000/checkout', {
-        //     method: 'POST',
-        //     headers: {'Content-Type': 'application/json'},
-        //     body: JSON.stringify(checkout)
         // })
-        // const data = await res.json
-        // console.log('data => ', data)
+        // payload.append('items', JSON.stringify(items))
+        // payload.append('amount', total)
+        // fetch('http://localhost:4000/checkout', {
+        //     method: 'POST',
+        //     body: payload
+        // })
+        //     .then(res => res.json())
+        //     .then(data => console.log('response => ', data))
+        //     .catch(err => console.log('EEROR => ', err))
+        window.location = '/coba'
     }
 
     return (
