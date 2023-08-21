@@ -1,5 +1,5 @@
 // Module
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { useCartContext } from "../hooks/useCartContext"
 // ==>
 const Checkout = () => {
@@ -9,24 +9,43 @@ const Checkout = () => {
     const [address, setAddress] = useState('')
     const [message, setMessage] = useState('')
     const { total, cart } = useCartContext()
+    const ref = useRef()
 
     const handleCheckout = async (e) => {
         e.preventDefault()
-        const checkout = {
-            name, email, phone_number, address, message, total,
-            items: cart.map(product => {
+        let payload = new FormData(e.target)
+        
+        const items = cart.map(product => {
                 const product_id = product.id
                 const quantity = product.amount
                 return { product_id, quantity }
-            })
-        }
-        const res = await fetch('http://localhost:4000/checkout', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(checkout)
         })
-        const data = await res.json
-        console.log('data => ', data)
+        payload.append('items', JSON.stringify(items))
+        console.log(typeof(payload))
+        console.log([...payload])
+
+        fetch('http://localhost:4000/coba', {
+            method: 'POST',
+            body: payload
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log('EEROR => ', err))
+        // const checkout = {
+        //     name, email, phone_number, address, message, total,
+        //     items: cart.map(product => {
+        //         const product_id = product.id
+        //         const quantity = product.amount
+        //         return { product_id, quantity }
+        //     })
+        // }
+        // const res = await fetch('http://localhost:4000/checkout', {
+        //     method: 'POST',
+        //     headers: {'Content-Type': 'application/json'},
+        //     body: JSON.stringify(checkout)
+        // })
+        // const data = await res.json
+        // console.log('data => ', data)
     }
 
     return (
@@ -46,6 +65,7 @@ const Checkout = () => {
             </div>
             {/* <div > */}
                 <form 
+                ref={ref}
                 onSubmit={(e)=>handleCheckout(e)}
                 className="h-max border border-black w-[90%] p-4 flex flex-col gap-4 text-sm"
                 // className="flex flex-col justify-between items-center gap-4"
@@ -60,6 +80,8 @@ const Checkout = () => {
                     <input value={phone_number} onChange={(e=>setphoneNumber(e.target.value))} type="text" name="phone_number"/>
                     <label htmlFor="address">Address : </label>
                     <input value={address} onChange={(e)=>setAddress(e.target.value)} type="text" name="address"/>
+                    <label htmlFor="image">Receipt : </label>
+                    <input type="file" name="image" accept="image/jpeg, image/png, image/jpeg"/>
                     <button>Checkout</button>
                 </form>
             {/* </div> */}
