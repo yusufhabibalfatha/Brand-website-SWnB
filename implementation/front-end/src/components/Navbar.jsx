@@ -31,7 +31,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className='bg-[#F5F5F5] flex justify-between items-center border-b-2 h-[12%] px-5 md:px-10 border-black fixed top-0 w-full'>
+        <nav className='bg-[#F5F5F5] flex justify-between items-center border-b-2 h-[12%] px-5 md:px-10 border-black fixed top-0 w-full z-10'>
             <div className="nav-title w-full md:flex md:flex-col md:justify-evenly md:items-center md:h-full">
                 <Link to="/"><h1 className='text-sm'>Samuel <br className='md:hidden'></br>Black & White</h1></Link>
                 <div className="nav-link max-[767px]:hidden w-1/2 flex justify-between">

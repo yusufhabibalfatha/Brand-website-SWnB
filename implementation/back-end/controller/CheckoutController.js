@@ -41,7 +41,10 @@ const getProductTransaction = async (req, res) =>{
     const transaction_id = req.params.transaction_id
     const mysql = await connectDB()
     const query = `
-    SELECT * FROM transactionitem
+    SELECT name, price, category, quantity 
+    FROM transactionitem
+    INNER JOIN products
+        ON products.id=transactionitem.product_id
     WHERE transaction_id='${transaction_id}'`
     const [rows, fields] = await mysql.query(query)
     res.status(200).json({rows})
