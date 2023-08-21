@@ -33,6 +33,7 @@ const getTransaction = async (req, res) => {
     INNER JOIN customer 
         ON transaction.customer_id=customer.id`
     const [rows, fields] = await mysql.query(query)
+    // console.log('rows => ', rows)
     res.status(200).json({rows})
 }
 // GET product transaction
@@ -45,6 +46,11 @@ const getProductTransaction = async (req, res) =>{
     const [rows, fields] = await mysql.query(query)
     res.status(200).json({rows})
 }
+// GET checkout receipt
+const getCheckoutReceipt = (req, res) => {
+    const name = req.params.receipt_name
+    res.download(`./image/${name}`)
+}
 
 
-module.exports = { postCheckout, getTransaction, getProductTransaction }
+module.exports = { postCheckout, getTransaction, getProductTransaction, getCheckoutReceipt }

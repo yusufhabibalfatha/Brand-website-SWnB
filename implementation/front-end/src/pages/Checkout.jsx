@@ -13,23 +13,23 @@ const Checkout = () => {
 
     const handleCheckout = async (e) => {
         e.preventDefault()
-        // let payload = new FormData(e.target)
+        let payload = new FormData(e.target)
         
-        // const items = cart.map(product => {
-        //         const product_id = product.id
-        //         const quantity = product.amount
-        //         return { product_id, quantity }
-        // })
-        // payload.append('items', JSON.stringify(items))
-        // payload.append('amount', total)
-        // fetch('http://localhost:4000/checkout', {
-        //     method: 'POST',
-        //     body: payload
-        // })
-        //     .then(res => res.json())
-        //     .then(data => console.log('response => ', data))
-        //     .catch(err => console.log('EEROR => ', err))
-        window.location = '/coba'
+        const items = cart.map(product => {
+                const product_id = product.id
+                const quantity = product.amount
+                return { product_id, quantity }
+        })
+        payload.append('items', JSON.stringify(items))
+        payload.append('amount', total)
+        fetch('http://localhost:4000/checkout', {
+            method: 'POST',
+            body: payload
+        })
+            .then(res => res.json())
+            .then(data => console.log('response => ', data))
+            .catch(err => console.log('EEROR => ', err))
+        // window.location = '/coba'
     }
 
     return (
