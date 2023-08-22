@@ -1,18 +1,20 @@
-import DisplayProducts from "./DisplayProducts";
+import Product from "./Product";
 // ==>
 const Products = ({ products }) => {
+  return (
+    <div className="mx-auto mt-[3em] h-96 w-4/5">
+      <div className="my-[1em] flex justify-between">
+        <p>Products</p>
+        <button>See All</button>
+      </div>
+      <div className="grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {products &&
+          products.map((product) => (
+            <Product product={product} key={product.id} />
+          ))}
+      </div>
+    </div>
+  );
+};
 
-    return (
-        <div className="products mt-[3em] w-4/5 mx-auto h-96">
-            <div className="title my-[1em] flex justify-between">
-                <p>Products</p>
-                <button>See All</button>
-            </div>
-            <div className="display-products grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-4">
-                {products && products.map(product => <DisplayProducts product={product} key={product.id}/>) }
-            </div>
-        </div>
-    );
-}
- 
 export default Products;

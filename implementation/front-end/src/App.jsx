@@ -1,27 +1,26 @@
 // Package
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Module
-import Navbar from "./components/Navbar"
-import Home from "./pages/Home"
-import Cart from "./pages/Cart"
-import Checkout from "./pages/Checkout"
-import Coba from "./pages/Coba"
+import Navbar from "./components/Navbar";
+import SWnB from "./pages/SW&B";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import Coba from "./pages/Coba";
 // ==>
 function App() {
-
   return (
-    <div className="app bg-[#F5F5F5] relative h-full font-primary pt-[6em]">
+    <div className="relative  bg-color-one pt-[6em] font-primary">
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<SWnB />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/coba" element={<Coba />} />
         </Routes>
       </Router>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

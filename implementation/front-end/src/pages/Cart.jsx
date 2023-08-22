@@ -1,30 +1,33 @@
 // Package
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 // Module
 import { useEffect } from "react";
-import CartItem from "../components/CartItem";
+import CartProduct from "../components/CartProduct";
 import { useCartContext } from "../hooks/useCartContext";
 // ==>
 const Cart = () => {
-    const { cart, totalPayment, total } = useCartContext()
-    useEffect(()=>{
-        totalPayment()
-    }, [totalPayment])
+  const { cart, countTotalPayment, totalPayment } = useCartContext();
+  useEffect(() => {
+    countTotalPayment();
+  }, [countTotalPayment]);
 
-    return (
-        <div className="cart h-screen flex flex-col items-center gap-4">
-            <div className="cart-title">
-                <h1 className="text-3xl font-bold">Your cart</h1>
-            </div>
-            <div className="cart-list">
-                {cart && cart.map(product => <CartItem product={product} key={product.id}/>)}
-            </div>
-            <div className="cart-total w-1/2 flex justify-evenly h-fit">
-                <p>$ {total}</p>
-                <Link to="/checkout">Next</Link>
-            </div>
-        </div>
-    )
-}
- 
+  return (
+    <div className="flex h-full flex-col items-center gap-4">
+      <div>
+        <h1 className="text-3xl font-bold">Your cart</h1>
+      </div>
+      <div>
+        {cart &&
+          cart.map((product, index) => (
+            <CartProduct product={product} index={index} key={product.id} />
+          ))}
+      </div>
+      <div className="flex h-24 w-4/5 items-center justify-evenly text-center">
+        <p className="font-bold">Rp. {totalPayment}.000</p>
+        <Link to="/checkout">Checkout</Link>
+      </div>
+    </div>
+  );
+};
+
 export default Cart;
