@@ -21,6 +21,7 @@ const Checkout = () => {
     });
     payload.append("products", JSON.stringify(products));
     payload.append("total_payment", totalPayment);
+    console.log("payload => ", [...payload]);
     let url = "http://localhost:4000/checkout";
     fetch(url, { method: "POST", body: payload })
       .then((res) => res.json())
@@ -29,7 +30,7 @@ const Checkout = () => {
     alert(
       "Thank you for your shopping. We will contact you soon via Whatsapp and Email.",
     );
-    window.location = "/coba";
+    // window.location = "/coba";
   };
 
   return (

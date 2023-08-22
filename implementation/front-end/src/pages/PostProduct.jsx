@@ -24,6 +24,7 @@ const PostProduct = () => {
         <h1 className="text-center text-3xl font-bold">Post product</h1>
       </div>
       <form
+        autoComplete="off"
         onSubmit={(e) => handleSubmit(e)}
         className="mt-8 flex flex-col gap-4 px-8 py-2"
       >

@@ -12,7 +12,8 @@ app.use(express.json());
 // ==>
 app.use("/products", ProductsRoutes);
 app.use("/checkout", TransactionRoutes);
-app.use("/receipt", express.static(path.join(__dirname, "image")));
+app.use("/receipt", express.static(path.join(__dirname, "image/receipts")));
+app.use("/image", express.static(path.join(__dirname, "image/products")));
 
 app.listen(process.env.PORT_SERVER, async () => {
   console.log("Listen to the port...");

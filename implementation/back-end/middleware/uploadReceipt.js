@@ -1,9 +1,17 @@
 // Package
 const multer = require("multer");
 // ==>
-const fileStorage = multer.diskStorage({
+const fileStorageProducts = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "image");
+    cb(null, "image/products");
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().getTime() + "-" + file.originalname);
+  },
+});
+const fileStorageReceipt = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "image/receipts");
   },
   filename: (req, file, cb) => {
     cb(null, new Date().getTime() + "-" + file.originalname);
@@ -21,6 +29,13 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-let upload = multer({ storage: fileStorage, fileFilter: fileFilter });
+let uploadProductImage = multer({
+  storage: fileStorageProducts,
+  fileFilter: fileFilter,
+});
+let uploadReceiptImage = multer({
+  storage: fileStorageReceipt,
+  fileFilter: fileFilter,
+});
 
-module.exports = upload;
+module.exports = { uploadProductImage, uploadReceiptImage };

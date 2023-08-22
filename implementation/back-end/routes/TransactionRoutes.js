@@ -7,11 +7,11 @@ const {
   getProductTransaction,
   getTransactionReceipt,
 } = require("../controller/TransactionController");
-const upload = require("../middleware/uploadReceipt");
+const { uploadReceiptImage } = require("../middleware/uploadReceipt");
 // Init
 const router = express.Router();
 // POST Transaction
-router.post("/", upload.single("image"), postTransaction);
+router.post("/", uploadReceiptImage.single("image"), postTransaction);
 // GET Transaction
 router.get("/transaction", getTransaction);
 // GET Transaction item or product

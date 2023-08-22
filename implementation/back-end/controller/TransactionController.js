@@ -21,7 +21,9 @@ const postTransaction = async (req, res) => {
     customer_id: customer.id,
     receipt: req.file.filename,
   };
-  const transactionItems = JSON.parse(req.body.items);
+  console.log("req => ", req.body.products);
+  const transactionItems = JSON.parse(req.body.products);
+  console.log("transactionitem => ", transactionItems);
   transaction.id = await addTransaction(transaction);
   await addTransactionItems(transaction.id, transactionItems);
   res.status(200).json({ msg: "done" });
