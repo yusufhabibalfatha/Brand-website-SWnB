@@ -6,6 +6,7 @@ import SWnB from "./pages/SW&B";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Coba from "./pages/Coba";
+import PostProduct from "./pages/PostProduct";
 // ==>
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/coba" element={<Coba />} />
+          <Route path="/post" element={<PostProduct />} />
         </Routes>
       </Router>
     </div>
