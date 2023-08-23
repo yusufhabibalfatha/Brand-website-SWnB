@@ -22,7 +22,25 @@ const createAdmin = async (req, res) => {
 };
 // CHECK admin login
 const loginAdmin = async (req, res) => {
-  const mysql = await connectDB();
+  try {
+    const mysql = await connectDB();
+    const admin = {
+      email: req.body.email,
+      password: req.body.password,
+    };
+    const query = `SELECT id, email FROM admin WHERE email = '${admin.email}'`;
+    const [rows, fields] = await mysql.execute(query);
+    const notAdmin = rows.length < 1;
+    if (notAdmin) {
+      res.status(400).json({ msg: "you are not admin" });
+    } else {
+      const token = createToken(rows[0].id);
+      res.status(200).json({ email: rows[0].email, token });
+    }
+  } catch (err) {
+    console.log("error");
+    console.log("==>", err);
+  }
 };
 
 module.exports = { createAdmin, loginAdmin };

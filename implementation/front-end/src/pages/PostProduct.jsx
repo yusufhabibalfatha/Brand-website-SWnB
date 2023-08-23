@@ -4,7 +4,6 @@ const PostProduct = () => {
     e.preventDefault();
     const postProduct = async () => {
       let payload = new FormData(e.target);
-      console.log("==> ", [...payload]);
       const url = "http://localhost:4000/products";
       const res = await fetch(url, {
         method: "POST",
