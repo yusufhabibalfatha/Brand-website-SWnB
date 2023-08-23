@@ -54,7 +54,7 @@ const getProductTransaction = async (req, res) => {
 // GET Transaction receipt
 const getTransactionReceipt = (req, res) => {
   const name = req.params.receipt_name;
-  res.download(`./image/${name}`);
+  res.download(`./image/receipts/${name}`);
 };
 
 module.exports = {

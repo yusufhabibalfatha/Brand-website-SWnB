@@ -23,7 +23,7 @@ const Cart = () => {
           ))}
       </div>
       <div className="flex h-24 w-4/5 items-center justify-evenly text-center">
-        <p className="font-bold">Rp. {totalPayment}.000</p>
+        <p className="font-bold">Rp. {totalPayment}</p>
         <Link to="/checkout">Checkout</Link>
       </div>
     </div>
