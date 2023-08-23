@@ -1,21 +1,29 @@
+// Module
+import { useAdminContext } from "../hooks/useAdminContext";
 // ==>
 const LoginAdmin = () => {
-  const handleSubmit = (e) => {
+  const { admin, addAdmin } = useAdminContext();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const login = async () => {
-      const admin = {
-        email: e.target.email.value,
-        password: e.target.password.value,
-      };
-      const url = "http://localhost:4000/admin/login";
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(admin),
-      });
-      window.location = "/admin";
+    const admin = {
+      email: e.target.email.value,
+      password: e.target.password.value,
     };
-    login();
+    const url = "http://localhost:4000/admin/login";
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(admin),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      alert(`${data.msg}`);
+    } else {
+      localStorage.setItem("admin", JSON.stringify(data));
+      addAdmin(data);
+      alert("Login success.");
+      window.location = "/admin";
+    }
   };
   return (
     <div className="m-4 border border-black p-4 md:mx-auto md:w-1/3 lg:w-1/4">
