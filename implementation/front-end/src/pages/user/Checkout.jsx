@@ -1,6 +1,6 @@
 // Module
 import { useState } from "react";
-import { useCartContext } from "../hooks/useCartContext";
+import { useCartContext } from "../../hooks/useCartContext";
 // ==>
 const Checkout = () => {
   const [name, setName] = useState("");

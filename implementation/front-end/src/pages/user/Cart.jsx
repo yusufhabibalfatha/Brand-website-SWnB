@@ -2,8 +2,8 @@
 import { Link } from "react-router-dom";
 // Module
 import { useEffect } from "react";
-import CartProduct from "../components/CartProduct";
-import { useCartContext } from "../hooks/useCartContext";
+import CartProduct from "../../components/CartProduct";
+import { useCartContext } from "../../hooks/useCartContext";
 // ==>
 const Cart = () => {
   const { cart, countTotalPayment, totalPayment } = useCartContext();

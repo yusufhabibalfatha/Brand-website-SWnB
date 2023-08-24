@@ -1,7 +1,7 @@
 // Package
 import { useEffect } from "react";
 // Module
-import { useAdminContext } from "../hooks/useAdminContext";
+import { useAdminContext } from "../../hooks/useAdminContext";
 import { useState } from "react";
 // ==>
 const Admin = () => {

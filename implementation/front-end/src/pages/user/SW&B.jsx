@@ -1,9 +1,9 @@
 // Package
 import { useEffect, useState } from "react";
 // Module
-import Header from "../components/Header";
-import TextMarquee from "../components/TextMarquee";
-import Products from "../components/Products";
+import Header from "../../components/Header";
+import TextMarquee from "../../components/TextMarquee";
+import Products from "../../components/Products";
 // ==>
 const SWnB = () => {
   const [products, setProducts] = useState();
