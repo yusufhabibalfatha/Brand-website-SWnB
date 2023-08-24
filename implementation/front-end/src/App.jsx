@@ -9,6 +9,7 @@ import Coba from "./pages/Coba";
 import PostProduct from "./pages/PostProduct";
 import LoginAdmin from "./pages/LoginAdmin";
 import Admin from "./pages/Admin";
+import User from "./pages/User";
 // ==>
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/post-product" element={<PostProduct />} />
           <Route path="/login" element={<LoginAdmin />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/user/*" element={<User />} />
         </Routes>
       </Router>
     </div>
