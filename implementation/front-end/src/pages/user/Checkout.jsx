@@ -12,25 +12,23 @@ const Checkout = () => {
 
   const handleCheckout = async (e) => {
     e.preventDefault();
-    let payload = new FormData(e.target);
+    let checkoutPayload = new FormData(e.target);
 
-    const products = cart.map((product) => {
+    const productsOrder = cart.map((product) => {
       const product_id = product.id;
       const quantity = product.quantity;
       return { product_id, quantity };
     });
-    payload.append("products", JSON.stringify(products));
-    payload.append("total_payment", totalPayment);
-    console.log("payload => ", [...payload]);
+    checkoutPayload.append("products", JSON.stringify(productsOrder));
+    checkoutPayload.append("total_payment", totalPayment);
     let url = "http://localhost:4000/checkout";
-    fetch(url, { method: "POST", body: payload })
+    fetch(url, { method: "POST", body: checkoutPayload })
       .then((res) => res.json())
-      .then((data) => console.log("response => ", data))
-      .catch((err) => console.log("EEROR => ", err));
+      .catch((err) => alert("Errot ", err));
     alert(
       "Thank you for your shopping. We will contact you soon via Whatsapp and Email.",
     );
-    // window.location = "/coba";
+    window.location = "/";
   };
 
   return (

@@ -7,14 +7,16 @@ import Products from "../../components/Products";
 // ==>
 const SWnB = () => {
   const [products, setProducts] = useState();
+  const [error, setError] = useState();
   useEffect(() => {
-    const getAllProducts = async () => {
-      let url = "http://localhost:4000/products";
+    const fetchAllProducts = async () => {
+      const url = "http://localhost:4000/products";
       const res = await fetch(url);
       const data = await res.json();
+      if (!res.ok) setError(data.error);
       setProducts(data.result);
     };
-    getAllProducts();
+    fetchAllProducts();
   }, []);
 
   return (
@@ -22,6 +24,7 @@ const SWnB = () => {
       <Header />
       <TextMarquee />
       <Products products={products} />
+      {error && <p>{error}</p>}
     </div>
   );
 };

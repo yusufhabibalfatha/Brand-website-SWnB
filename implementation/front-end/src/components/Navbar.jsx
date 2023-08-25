@@ -37,11 +37,11 @@ const Navbar = () => {
           <h1>SW&B</h1>
         </Link>
         <div className="flex w-1/2 justify-between text-xs max-[767px]:hidden">
-          <Link>Cloth</Link>
           <Link>Black</Link>
           <Link>White</Link>
           <Link>About us</Link>
           <Link>Contact us</Link>
+          <Link to="/admin">Admin</Link>
         </div>
       </div>
       <div className="nav-icon flex w-1/3 -translate-y-1 items-end justify-around md:w-fit md:justify-end">

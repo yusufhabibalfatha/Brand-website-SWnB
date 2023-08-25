@@ -16,8 +16,6 @@ const createAdmin = async (req, res) => {
   const mysql = await connectDB();
   const query = `INSERT INTO admin (email, password) VALUES ('${email}', '${hash}')`;
   const [rows, fields] = await mysql.execute(query);
-  console.log("rows => ", rows);
-  console.log("fields => ", fields);
   res.send({ msg: "create admin account done" });
 };
 // CHECK admin login
@@ -32,7 +30,7 @@ const loginAdmin = async (req, res) => {
     const [rows, fields] = await mysql.execute(query);
     const notAdmin = rows.length < 1;
     if (notAdmin) {
-      res.status(400).json({ msg: "you are not admin" });
+      res.status(400).json({ msg: "You are not admin!" });
     } else {
       const pass = await bcrypt.compare(admin.password, rows[0].password);
       if (!pass) {
@@ -47,8 +45,7 @@ const loginAdmin = async (req, res) => {
       }
     }
   } catch (err) {
-    console.log("error");
-    console.log("==>", err);
+    res.status(400).json({ msg: err });
   }
 };
 // Check admin

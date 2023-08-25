@@ -11,6 +11,10 @@ const AdminCheckoutList = () => {
       let url = "http://localhost:4000/checkout/transaction";
       const res = await fetch(url);
       const data = await res.json();
+      if (!res.ok) {
+        alert("Error, something wrong when get all checkout data customer");
+        window.location = "/";
+      }
       setData(data.rows);
     };
     {
@@ -33,6 +37,7 @@ const AdminCheckoutList = () => {
               <p>Phone : {data.phone_number}</p>
               <p>Adress : {data.address}</p>
               <p>Message : {data.message}</p>
+              <p>Total payment : Rp. {data.amount}</p>
             </div>
             <ListCheckout key={index} transaction_id={data.ID} />
             <div className="flex items-center justify-between text-sm underline">

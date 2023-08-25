@@ -5,7 +5,7 @@ const {
   getAllProducts,
   postProduct,
 } = require("../controller/ProductsController");
-const { uploadProductImage } = require("../middleware/uploadReceipt");
+const { uploadProductImage } = require("../middleware/uploadImages");
 // Init
 const router = express.Router();
 // GET all prodcuts

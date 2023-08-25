@@ -7,7 +7,7 @@ const {
   getProductTransaction,
   getTransactionReceipt,
 } = require("../controller/TransactionController");
-const { uploadReceiptImage } = require("../middleware/uploadReceipt");
+const { uploadReceiptImage } = require("../middleware/uploadImages");
 // Init
 const router = express.Router();
 // POST Transaction

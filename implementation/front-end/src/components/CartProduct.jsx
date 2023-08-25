@@ -22,6 +22,13 @@ const CartProduct = ({ product, index }) => {
 
   return (
     <div className="my-4 border border-black p-4">
+      <div className="px-4 py-2">
+        <img
+          className="mx-auto h-20 rounded"
+          src={`http://localhost:4000/image/${product.src_image}`}
+          alt="product-image"
+        />
+      </div>
       <div>
         <h1>
           {index + 1}. {product.name}

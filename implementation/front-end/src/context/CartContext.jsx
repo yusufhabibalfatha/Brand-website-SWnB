@@ -16,11 +16,9 @@ export const CartContextProvider = ({ children }) => {
       }
     });
     if (sameProduct.length < 1) {
-      //   product.amount = 1;
       product.quantity = 1;
       setCart((prev) => [...prev, product]);
     } else {
-      //   sameProduct[0].amount += 1;
       sameProduct[0].quantity += 1;
       setCart((prev) => {
         prev[indexProductInCart] = sameProduct[0];

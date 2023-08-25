@@ -14,7 +14,6 @@ const getAllProducts = async (req, res) => {
 // post product
 const postProduct = async (req, res) => {
   const mysql = await connectDB();
-  console.log("----");
   const product = {
     name: req.body.name,
     description: req.body.description,

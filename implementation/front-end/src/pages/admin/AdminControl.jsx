@@ -14,13 +14,13 @@ const AdminControl = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) {
-        alert("you are not admin!");
+        alert("You are not admin!");
         dispatch({ type: "LOGOUT", payload: false });
         window.location = "/admin";
       }
       window.location = "/admin/checkout-list";
     } catch (err) {
-      alert(`error = ${err}`);
+      alert(`Error = ${err}`);
     }
   };
   return (
