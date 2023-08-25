@@ -1,8 +1,10 @@
-// Module
-import { useAdminContext } from "../hooks/useAdminContext";
+// Package & Module
+import { useEffect } from "react";
+import { useAdminContext } from "../../hooks/useAdminContext";
+import { Navigate } from "react-router-dom";
 // ==>
-const LoginAdmin = () => {
-  const { admin, addAdmin } = useAdminContext();
+const AdminLogin = () => {
+  const { dispatch } = useAdminContext();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const admin = {
@@ -19,10 +21,10 @@ const LoginAdmin = () => {
     if (!res.ok) {
       alert(`${data.msg}`);
     } else {
-      localStorage.setItem("admin", JSON.stringify(data));
-      addAdmin(data);
+      localStorage.setItem("admin", JSON.stringify(data.admin));
+      dispatch({ type: "LOGIN", payload: data.admin });
       alert("Login success.");
-      window.location = "/admin";
+      window.location = "/admin/control";
     }
   };
   return (
@@ -60,4 +62,4 @@ const LoginAdmin = () => {
   );
 };
 
-export default LoginAdmin;
+export default AdminLogin;

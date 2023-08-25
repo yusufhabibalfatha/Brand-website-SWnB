@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 // Module
 import menuIcon from "../assets/icon/menu.png";
 import close from "../assets/icon/close.png";
+import { useAdminContext } from "../hooks/useAdminContext";
 // ==>
-const NavbarAdmin = () => {
+const AdminNavbar = () => {
+  const { dispatch } = useAdminContext();
   const [showMenu, setShowMenu] = useState(false);
   const menuPhoneVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -32,14 +34,17 @@ const NavbarAdmin = () => {
   return (
     <nav className="fixed top-0 z-10 flex h-[12%] w-full items-center justify-between border-b-[1px] border-black bg-color-one px-5 md:px-10">
       <div className="w-full md:flex md:h-full md:flex-col md:items-center md:justify-evenly">
-        <Link to="/">
-          {/* <h1>SW&B</h1> */}
+        <Link to="/admin/control">
           <h1>Admin</h1>
         </Link>
-        <div className="flex w-1/2 justify-between text-xs max-[767px]:hidden">
-          <Link>Post Product</Link>
-          <Link>Checkout Customer</Link>
-          <Link>Logout</Link>
+        <div className="flex w-1/2 justify-evenly text-xs max-[767px]:hidden">
+          <Link to="post-product">Post Product</Link>
+          <Link
+            onClick={() => dispatch({ type: "LOGOUT", payload: false })}
+            to="/admin"
+          >
+            Logout
+          </Link>
         </div>
       </div>
       <div className="nav-icon flex w-1/3 -translate-y-1 items-end justify-around md:w-fit md:justify-end">
@@ -83,4 +88,4 @@ const NavbarAdmin = () => {
   );
 };
 
-export default NavbarAdmin;
+export default AdminNavbar;

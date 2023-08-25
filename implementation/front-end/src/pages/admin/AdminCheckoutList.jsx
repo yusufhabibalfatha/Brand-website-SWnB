@@ -1,8 +1,10 @@
 // Package
 import { useEffect, useState } from "react";
-import CobaItem from "../components/CobaItems";
+import ListCheckout from "../../components/ListCheckout";
+import { useAdminContext } from "../../hooks/useAdminContext";
 // ==>
-const Coba = () => {
+const AdminCheckoutList = () => {
+  const { state } = useAdminContext();
   const [data, setData] = useState();
   useEffect(() => {
     const tryingFetch = async () => {
@@ -11,8 +13,10 @@ const Coba = () => {
       const data = await res.json();
       setData(data.rows);
     };
-    tryingFetch();
-  }, []);
+    {
+      state.admin && tryingFetch();
+    }
+  }, [state.admin]);
 
   return (
     <div className="mx-auto flex flex-col gap-4 p-4 md:w-1/2">
@@ -30,7 +34,7 @@ const Coba = () => {
               <p>Adress : {data.address}</p>
               <p>Message : {data.message}</p>
             </div>
-            <CobaItem key={index} transaction_id={data.ID} />
+            <ListCheckout key={index} transaction_id={data.ID} />
             <div className="flex items-center justify-between text-sm underline">
               <a
                 href={`http://localhost:4000/checkout/receipt/${data.receipt}`}
@@ -46,4 +50,4 @@ const Coba = () => {
   );
 };
 
-export default Coba;
+export default AdminCheckoutList;

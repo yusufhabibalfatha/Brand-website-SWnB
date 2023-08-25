@@ -13,8 +13,10 @@ const adminAuth = async (req, res, next) => {
     const [rows, fields] = await mysql.execute(query);
     const adminNotExist = rows.length < 1;
     if (adminNotExist) {
+      console.log("admin not login");
       res.status(400).json({ msg: "Admin not exist!" });
     } else {
+      console.log("admin login");
       next();
     }
   } catch (err) {

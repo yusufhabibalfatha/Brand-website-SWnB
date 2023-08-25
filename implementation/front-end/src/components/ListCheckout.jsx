@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 // ==>
-const CobaItem = ({ transaction_id }) => {
+const ListCheckout = ({ transaction_id }) => {
   const [orderItem, setOrderItem] = useState();
   useEffect(() => {
     const fetchOrderItem = async (transaction_id) => {
@@ -29,4 +29,4 @@ const CobaItem = ({ transaction_id }) => {
   );
 };
 
-export default CobaItem;
+export default ListCheckout;

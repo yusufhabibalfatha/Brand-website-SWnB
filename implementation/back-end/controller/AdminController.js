@@ -39,7 +39,11 @@ const loginAdmin = async (req, res) => {
         res.status(400).json({ msg: "Your password incorrect!" });
       } else {
         const token = createToken(rows[0].id);
-        res.status(200).json({ email: rows[0].email, token });
+        const admin = {
+          email: rows[0].email,
+          token,
+        };
+        res.status(200).json({ admin });
       }
     }
   } catch (err) {
